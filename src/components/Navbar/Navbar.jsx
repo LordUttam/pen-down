@@ -1,10 +1,10 @@
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
-import { Search } from "components";
 
-export default function Navigation() {
-  const { cartState, cartDispatch } = useCart();
-  const { wishlistState, wishlistDispatch } = useWishlist();
+import { Link, useNavigate } from "react-router-dom";
+import Search from "../Search/Search";
+import { useAuth } from "../../contexts/auth-context";
+
+export const Navbar = () => {
   const { authData, setAuthData } = useAuth();
   const navigate = useNavigate();
 
@@ -16,15 +16,6 @@ export default function Navigation() {
       token: null,
       isAuthenticated: false,
     }));
-    for (let item of wishlistState.wishlistItems) {
-      wishlistDispatch({
-        type: "REMOVE_FROM_WISHLIST",
-        payload: item,
-      });
-    }
-    for (let item of cartState.cartItems) {
-      cartDispatch({ type: "REMOVE_ITEM", payload: item });
-    }
     navigate("/home");
   }
   return (
@@ -48,32 +39,8 @@ export default function Navigation() {
               </Link>
             )}
           </li>
-          <li className="header__btn m--x-0-5">
-            <Link to="/wishlist" className="p--x-1 badge-container">
-              <i className="bx bxs-heart wishlist-icon"></i>
-              {wishlistState.wishlistItems.length > 0 ? (
-                <span className="badge badge--small badge--top-right">
-                  <span className="badge__text">
-                    {wishlistState.wishlistItems.length}
-                  </span>
-                </span>
-              ) : null}
-            </Link>
-          </li>
-          <li className="header__btn m--x-0-5">
-            <Link to="/cart" className="p--x-1">
-              <i className="bx bxs-cart cart-icon"></i>
-              {cartState.cartItems.length > 0 ? (
-                <span className="badge badge--small badge--top-right">
-                  <span className="badge__text">
-                    {cartState.cartItems.length}
-                  </span>
-                </span>
-              ) : null}
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
   );
-}
+};
