@@ -218,6 +218,33 @@ ul.list--stacked.items--start > li > label {
   width: 60%;
 }
 
+.grid--four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  text-align: center;
+}
+
+.btn.btn--float {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  outline: none;
+}
+
+.grid--two {
+  height: 100%;
+  width: 100%;
+}
+
+.bg--transparent {
+  background: transparent;
+}
+
+.color--neutral {
+  color: var(--neutral-color);
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .header__logo img {

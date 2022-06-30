@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Sidebar } from "components/Sidebar/sidebar";
-
 import { notebookIcon } from "assets";
+import { notes } from "backend/db/notes";
+import { Note } from "components/Note/Note";
 import { Editor } from "components/Editor/Editor";
+
 export const Home = () => {
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
+
   return (
     <>
       <Navbar />
@@ -16,7 +21,29 @@ export const Home = () => {
               alt="notebook-icon"
               className="hero-img"
             ></img> */}
-          <Editor />
+          {isEditorOpen && <Editor editorDispatch={setIsEditorOpen} />}
+          <div className="grid--four">
+            {!isEditorOpen &&
+              notes.map((note) => (
+                <Note
+                  title={note.title}
+                  note={note.note}
+                  meta={note.meta}
+                  color={note.color}
+                  key={note.id}
+                />
+              ))}
+          </div>
+          {!isEditorOpen && (
+            <button
+              className="btn btn--float"
+              onClick={() => {
+                setIsEditorOpen(!isEditorOpen);
+              }}
+            >
+              +
+            </button>
+          )}
         </section>
       </main>
     </>
