@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-export const Search = () => {
+export default function Search() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const searchHandler = () => {
@@ -23,4 +23,4 @@ export const Search = () => {
       </button>
     </div>
   );
-};
+}
