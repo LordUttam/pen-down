@@ -18,7 +18,7 @@ export const notes = [
     meta: {
       time: "5:27 PM",
       date: "26/06/22",
-      tags: ["shopping"],
+      tags: ["work"],
       category: "home",
       pinned: true,
     },
@@ -40,14 +40,14 @@ export const notes = [
     meta: {
       time: "5:35 PM",
       date: "26/06/22",
-      tags: ["shopping"],
+      tags: ["chores"],
       category: "home",
       pinned: true,
     },
   },
   {
     id: uuid(),
-    title: "This is title2",
+    title: "This is title3",
     note: "Lorem Ipsum is simply dummy text of the printing and \
         typesetting industry. Lorem Ipsum has been the industry's \
         standard dummy text ever since the 1500s, when an unknown \

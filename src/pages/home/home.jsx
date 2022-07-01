@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { Navbar } from "../../components/Navbar/Navbar";
-import { Sidebar } from "components/Sidebar/sidebar";
+import { Sidebar, Navbar, Note, Editor } from "components";
 import { notebookIcon } from "assets";
 import { notes } from "backend/db/notes";
-import { Note } from "components/Note/Note";
-import { Editor } from "components/Editor/Editor";
 
 export const Home = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -16,11 +13,14 @@ export const Home = () => {
         <Sidebar />
 
         <section className="content flex flex__wrap--wrap p--x-2">
-          {/* <img
+          {notes.length === 0 && !isEditorOpen && (
+            <img
               src={notebookIcon}
               alt="notebook-icon"
               className="hero-img"
-            ></img> */}
+              onClick={() => setIsEditorOpen(true)}
+            ></img>
+          )}
           {isEditorOpen && <Editor editorDispatch={setIsEditorOpen} />}
           <div className="grid--four">
             {!isEditorOpen &&
