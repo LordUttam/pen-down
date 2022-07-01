@@ -4,9 +4,8 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-export const Editor = ({ editorDispatch }) => {
+export const Editor = () => {
   const [value, setValue] = useState("");
-
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -82,9 +81,7 @@ export const Editor = ({ editorDispatch }) => {
         />
       </div>
       <div className="flex justify--end items--center editor__actions p--y-0-5">
-        <button className="btn btn--link" onClick={() => editorDispatch(false)}>
-          Cancel
-        </button>
+        <button className="btn btn--link">Cancel</button>
         <button className="btn btn--primary border--primary p--0-5 p--x-1">
           Save
         </button>
