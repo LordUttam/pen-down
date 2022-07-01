@@ -1,4 +1,4 @@
-function Sidebar() {
+export const Sidebar = () => {
   return (
     <aside className="filters flex flex__dir--col items--start p--x-2 p--y-2">
       <div>
@@ -40,9 +40,9 @@ function Sidebar() {
       </div>
     </aside>
   );
-}
+};
 
-function SidebarMobile() {
+export const SidebarMobile = () => {
   return (
     <div className="filters--mobile flex flex__dir--col justify--center items--center p--x-1">
       <div>
@@ -58,6 +58,4 @@ function SidebarMobile() {
       </div>
     </div>
   );
-}
-
-export { Sidebar, SidebarMobile };
+};

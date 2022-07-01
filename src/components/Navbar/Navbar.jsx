@@ -1,7 +1,7 @@
 import "./Navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
-import Search from "../Search/Search";
+import { Search } from "components/Search/Search";
 import { useAuth } from "../../contexts/auth-context";
 
 export const Navbar = () => {
