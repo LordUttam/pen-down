@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Colorpicker } from "components/Colorpicker/Colorpicker";
 
-export const Editor = ({ editorDispatch }) => {
-  const [value, setValue] = useState("");
+export const Editor = ({ title = "", note = "", activeColor = "" }) => {
+  const [value, setValue] = useState(note);
+  const [isColorpickerOpen, setIsColorpickerOpen] = useState(false);
+  const [noteColor, setNoteColor] = useState(activeColor);
 
   const modules = {
     toolbar: [
@@ -58,17 +61,18 @@ export const Editor = ({ editorDispatch }) => {
   return (
     <form className="editor flex flex__dir--col justify--start border--accent">
       <div className="flex justify--evenly">
-        <input className="input h--3" placeholder="Add a Title" />
-        <div className="flex flex--center quick-actions">
-          <Link to="">
+        <input
+          className="input h--3"
+          placeholder="Add a Title"
+          defaultValue={title}
+        />
+        <div className="flex--inline flex--center quick-actions">
+          <span className="w--100 h--100 flex justify--between items--center">
             <i className="bx bxs-pin p--y-0 p--x-1"></i>
-          </Link>
-          <Link to="">
-            <i className="bx bxs-palette p--y-0 p--x-1"></i>
-          </Link>
-          <Link to="">
+          </span>
+          <span className="w--100 h--100 flex justify--between items--center">
             <i className="bx bxs-purchase-tag p--y-0 p--x-1"></i>
-          </Link>
+          </span>
         </div>
       </div>
       <div className="editor__container flex flex__dir--col">
@@ -81,13 +85,27 @@ export const Editor = ({ editorDispatch }) => {
           className="editor__body"
         />
       </div>
-      <div className="flex justify--end items--center editor__actions p--y-0-5">
-        <button className="btn btn--link" onClick={() => editorDispatch(false)}>
-          Cancel
-        </button>
-        <button className="btn btn--primary border--primary p--0-5 p--x-1">
-          Save
-        </button>
+      <div className="flex justify--between items--center editor__actions p--y-0-5">
+        <div className="flex--inline flex--center text--md quick-actions">
+          <span
+            className="w--100 h--100 p--0-5 flex justify--between items--center colorpicker-btn"
+            onClick={() => setIsColorpickerOpen(!isColorpickerOpen)}
+          >
+            <i className="bx bxs-palette p--y-0 p--x-1"></i>
+          </span>
+          {isColorpickerOpen && (
+            <Colorpicker noteColor={noteColor} setNoteColor={setNoteColor} />
+          )}
+        </div>
+        <div className="flex justify--end items--center p--0-25">
+          <button className="btn btn--link m__r--2">Cancel</button>
+          <button
+            className="btn btn--primary border--primary p--0-5 p--x-1"
+            onClick={() => saveNote(note)}
+          >
+            Save
+          </button>
+        </div>
       </div>
     </form>
   );

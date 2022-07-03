@@ -4,8 +4,8 @@ export const notes = [
   {
     id: uuid(),
     title: "This is title",
-    note: "Lorem Ipsum is simply dummy text of the printing and \
-        typesetting industry. Lorem Ipsum has been the industry's \
+    note: "Lorem Ipsum is simply <strong>dummy text</strong> of the printing and \
+        typesetting <em>industry</em>. Lorem Ipsum has been the industry's \
         standard dummy text ever since the 1500s, when an unknown \
         printer took a galley of type and scrambled it to make a \
         type specimen book. It has survived not only five centuries \
@@ -26,7 +26,7 @@ export const notes = [
   {
     id: uuid(),
     title: "This is title2",
-    note: "Lorem Ipsum is simply dummy text of the printing and \
+    note: "Lorem Ipsum is <u>simply dummy text</u> of the printing and \
         typesetting industry. Lorem Ipsum has been the industry's \
         standard dummy text ever since the 1500s, when an unknown \
         printer took a galley of type and scrambled it to make a \
@@ -48,7 +48,7 @@ export const notes = [
   {
     id: uuid(),
     title: "This is title3",
-    note: "Lorem Ipsum is simply dummy text of the printing and \
+    note: "Lorem Ipsum is <u>simply dummy text</u> of the printing and \
         typesetting industry. Lorem Ipsum has been the industry's \
         standard dummy text ever since the 1500s, when an unknown \
         printer took a galley of type and scrambled it to make a \
