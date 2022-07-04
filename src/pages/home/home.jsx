@@ -5,7 +5,15 @@ import { notes } from "backend/db/notes";
 
 export const Home = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-
+  const [title, setTitle] = useState("");
+  const [note, setNote] = useState("");
+  const [activeColor, setActiveColor] = useState("");
+  const openEditor = (titleToSet, noteToSet, activeColorToSet) => {
+    setTitle(titleToSet);
+    setNote(noteToSet);
+    setActiveColor(activeColorToSet);
+    setIsEditorOpen(true);
+  };
   return (
     <>
       <Navbar />
@@ -21,7 +29,14 @@ export const Home = () => {
               onClick={() => setIsEditorOpen(true)}
             ></img>
           )}
-          {isEditorOpen && <Editor editorDispatch={setIsEditorOpen} />}
+          {isEditorOpen && (
+            <Editor
+              editorDispatch={setIsEditorOpen}
+              title={title}
+              note={note}
+              activeColor={activeColor}
+            />
+          )}
           <div className="grid--four">
             {!isEditorOpen &&
               notes.map((note) => (
@@ -31,6 +46,7 @@ export const Home = () => {
                   meta={note.meta}
                   color={note.color}
                   key={note.id}
+                  openEditor={openEditor}
                 />
               ))}
           </div>
