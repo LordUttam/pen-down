@@ -2,8 +2,8 @@ import "./Navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
 import { Search } from "components/Search/Search";
-import { useAuth } from "../../contexts/auth-context";
-
+import { useAuth } from "contexts/auth-context";
+import { useEffect } from "react";
 export const Navbar = () => {
   const { authData, setAuthData } = useAuth();
   const navigate = useNavigate();
@@ -30,7 +30,11 @@ export const Navbar = () => {
         <ul className="header__list--align-end">
           <li className="color--primary header__btn m--x-0-5">
             {authData.isAuthenticated ? (
-              <Link to="/home" className="p--x-1" onClick={LogoutHandler}>
+              <Link
+                to="/home"
+                className="p--x-1 flex flex--center"
+                onClick={LogoutHandler}
+              >
                 Logout
               </Link>
             ) : (

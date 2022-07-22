@@ -1,0 +1,70 @@
+.signup .input,
+.login .input {
+  height: 100%;
+  border-radius: 2px;
+  outline: none;
+  font-size: 1rem;
+}
+
+p.login-link,
+p.signup-link {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.login .card .h--2,
+.signup .card .h--2 {
+  text-align: center;
+}
+
+.signup .card,
+.login .card {
+  width: max-content;
+}
+
+.login .input__container,
+.signup .input__container {
+  width: 100%;
+}
+
+.login .input,
+.signup .input {
+  height: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+p.signup-link,
+p.login-link {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+a.terms-conditions {
+  display: inline;
+  color: var(--primary-color);
+}
+
+.login .input__container,
+.signup .input__container {
+  border: 1px solid black;
+}
+.login .input,
+.signup .input {
+  border: none;
+}
+
+.login button[type="submit"]:disabled {
+  background: #dddddd;
+  pointer-events: none;
+}
+.signup button[type="submit"]:disabled {
+  background: #dddddd;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .search__container {
+    order: 2;
+  }
+}
