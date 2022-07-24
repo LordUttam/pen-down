@@ -270,6 +270,10 @@ ul.list--stacked.items--start > li > label {
   border-radius: 10000px;
 }
 
+.gap--1 {
+  gap: 1rem;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .header__logo img {
